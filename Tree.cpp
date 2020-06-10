@@ -8,6 +8,20 @@
 
 #include "Tree.hpp"
 
+void Tree::PrintTree(TreeNode* root,int x) {
+   
+    if (root != NULL) {
+        
+        Print(x, Print_Y, 1, root->pi.name);
+        
+        for (int i = 0; i < root->ChildrenNum; i++) {
+            if (i != 0) Print_Y = Print_Y + 3;
+            PrintTree(root->Children[i], x+5);
+            //y = y + 3;
+        }
+    }
+}
+
 void Tree::Release(TreeNode* root)
 {
     if (root != NULL)

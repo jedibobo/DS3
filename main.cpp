@@ -13,6 +13,9 @@
 
 int main()
 {
+    //Print(1, 1,1, "?!#$%^&",14);
+    //char s = 0;
+    //Print(0,0,0,0);
     string filename;
     cout << "输入待读取的文件名：" ;
     cin >> filename;
@@ -20,10 +23,3 @@ int main()
     Tree t;
     t.PreOrder(t.GetRoot());
 }
-
-
-
-
-
-
-
