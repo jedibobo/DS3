@@ -8,15 +8,16 @@
 
 #include "Tree.hpp"
 
-void Tree::PrintTree(TreeNode* root,int x) {
-   
+void Tree::PrintTree(TreeNode* root, int x) {
+    //system("cls");
+
     if (root != NULL) {
-        
+
         Print(x, Print_Y, 1, root->pi.name);
-        
+
         for (int i = 0; i < root->ChildrenNum; i++) {
             if (i != 0) Print_Y = Print_Y + 3;
-            PrintTree(root->Children[i], x+5);
+            PrintTree(root->Children[i], x + 10);
             //y = y + 3;
         }
     }
@@ -39,19 +40,16 @@ TreeNode* Tree::PreCreate()
     TreeNode* root;
     string n;
     int e, cn;
-    cin >> n >> e >> cn;//name exp childrennum
-    if (n == "#")
-        root = NULL;
-    else
+    cout << "Please input this man's name, experience and the number of his subordinates" << endl;
+    cin >> n >> e >> cn; //name exp childrennum
+    root = new TreeNode;
+    root->pi.name = n;
+    root->pi.exp = e;
+    root->ChildrenNum = cn;
+    for (int i = 0; i < cn; i++)
     {
-        root = new TreeNode;
-        root->pi.name = n;
-        root->pi.exp = e;
-        root->ChildrenNum = cn;
-        for (int i = 0; i < cn; i++)
-        {
-            root->Children.push_back(PreCreate());
-        }
+        cout << "Please input the " << i + 1 << "th subordinate of " << n << endl;
+        root->Children.push_back(PreCreate());
     }
     return root;
 }
@@ -91,22 +89,7 @@ int Tree::Height(TreeNode* root)
     }
 }
 
-void Tree::employ(TreeNode *p)
-{
-    string n; //name
-    cin >> n;
-    TreeNode* root;
-    root = new TreeNode;
-    root->pi.name = n;
-    root->pi.exp = 0; //new staff's status = 0
-    root->ChildrenNum = 0;
-    p->Children.push_back(root);
-    for (int i = 0; i < p->ChildrenNum; i++)
-    {
-        p->Children[i]->pi.exp++; //When a new staff is employed, the other staffs belonged to the same leader will increase their status. 
-    }
-    p->ChildrenNum++;
-}
+
 
 
 

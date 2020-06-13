@@ -3,9 +3,9 @@
 //  PIM
 //
 //  Created by Cedric on 2020/6/7.
-//  Copyright ? 2020 Cedric. All rights reserved.
+//  Copyright 漏 2020 Cedric. All rights reserved.
 //
-#define _CRT_SECURE_NO_WARNINGS
+
 #include <iostream>
 
 #include "Tree.hpp"
@@ -13,14 +13,18 @@
 
 int main()
 {
-    //Print(1, 1,1, "?!#$%^&",14);
-    //char s = 0;
-    //Print(0,0,0,0);
-    //string filename;
-    //cout << "输入待读取的文件名：" ;
-    //cin >> filename;
-    //PI* data_pt=read(filename);
+    //Print(1, 1, 1, "?!#$%^&", 14);
     Tree t;
-    //t.employ(t.GetRoot());
-    //t.PreOrder(t.GetRoot());
+    t.PreOrder(t.GetRoot());
+    int x;
+    cout << "\n please enter any code to print the tree" << endl;
+    cin >> x;
+    t.buildTree(t.GetRoot());
 }
+
+
+
+
+
+
+
