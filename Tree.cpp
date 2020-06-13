@@ -91,7 +91,22 @@ int Tree::Height(TreeNode* root)
     }
 }
 
-
+void Tree::employ(TreeNode *p)
+{
+    string n; //name
+    cin >> n;
+    TreeNode* root;
+    root = new TreeNode;
+    root->pi.name = n;
+    root->pi.exp = 0; //new staff's status = 0
+    root->ChildrenNum = 0;
+    p->Children.push_back(root);
+    for (int i = 0; i < p->ChildrenNum; i++)
+    {
+        p->Children[i]->pi.exp++; //When a new staff is employed, the other staffs belonged to the same leader will increase their status. 
+    }
+    p->ChildrenNum++;
+}
 
 
 

@@ -61,8 +61,8 @@ public:
     void PreOrder(TreeNode* root);
     int Height(TreeNode* root);
     void PrintTree(TreeNode* root,int x=0);
-
-
+    void employ(TreeNode *p);
+    
 
 
 
