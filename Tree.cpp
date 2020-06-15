@@ -92,6 +92,10 @@ TreeNode* Tree::PreCreate(PI*& p)
     return root;
 }
 
+Tree::Tree()
+{
+}
+
 void Tree::PreOrder(TreeNode* root)
 {
     if (root != NULL)
@@ -184,13 +188,14 @@ int Tree::hire(TreeNode*& p)
         cout << "This man can not be found." << endl;
         return 0;
     }
-    cout << "Please input the new staff's name:" << endl;
+    cout << "Please input the new staff's name and exp:" << endl;
     string n; //name
-    cin >> n;
+    int tem_exp = 0;
+    cin >> n>>tem_exp;
     TreeNode* root;
     root = new TreeNode;
     root->pi.name = n;
-    root->pi.exp = 0; //new staff's status = 0
+    root->pi.exp = tem_exp; //new staff's status = 0
     root->ChildrenNum = 0;
     p->Children.push_back(root);
     root->Parent = p;
@@ -217,7 +222,6 @@ int Tree::Find(string n, TreeNode* root, TreeNode*& p)
         }
     }
 }
-
 
 
 

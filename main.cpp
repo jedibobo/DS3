@@ -16,7 +16,7 @@ int main()
         cout << "\n1. Input the tree by a file;\n2. Input the tree manually" << endl;
         cin >> c;
     }
-    PI* q;
+    PI* q; Tree t;
     if (c == 1)
     {
         cout << "Please Input the file name" << endl;
@@ -25,21 +25,15 @@ int main()
         int num_lines;
         q = read(fn, num_lines);
         cout << num_lines;
-        //for (int i = 0; i < num_lines; i++)
-        //{
-            //cout << q->name << q->exp <<"  "<< q->Num<<endl;
-            //q++;
-        //}
-        Tree t(q);
+        t.construct(q);
         t.buildTree(t.GetRoot());
     }
     else
     {
-        Tree t;
+        t.construct();
         system("cls");
         t.buildTree(t.GetRoot());
     }
-    /*
     int x;
     TreeNode* p;
 
@@ -89,7 +83,7 @@ int main()
         cout << "Please check your illegal input." << endl;
         break;
     }
-    goto L1;*/
+    goto L1;
 }
 
 

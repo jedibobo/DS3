@@ -50,8 +50,11 @@ private:
 public:
     int Print_Y = 3;
     int project_num = 0;
-    Tree() { this->root = PreCreate(); }
-    Tree(PI* p) { this->root = PreCreate(p); }
+    Tree();
+    //Tree() { this->root = PreCreate(); }
+    //Tree(PI* p) { this->root = PreCreate(p); }
+    inline void construct() { this->root = PreCreate(); }
+    inline void construct(PI* p) { this->root = PreCreate(p); }
     void Release(TreeNode* root);
     TreeNode* GetRoot() { return root; }
     ~Tree() { Release(root); }
