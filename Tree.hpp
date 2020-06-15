@@ -1,11 +1,3 @@
-//
-//  Tree.hpp
-//  PIM
-//
-//  Created by Cedric on 2020/6/7.
-//  Copyright © 2020 Cedric. All rights reserved.
-//
-
 #ifndef Tree_hpp
 #define Tree_hpp
 
@@ -36,7 +28,8 @@ void Print(int x, int y, int state, T output, int color = 15) {    //打印基�
 struct PI
 {
     string name;
-    int exp;
+    int exp = 0;
+    int Num = 0;
 };
 
 struct TreeNode
@@ -44,6 +37,7 @@ struct TreeNode
     PI pi;
     int ChildrenNum = 0;
     vector<TreeNode*> Children;
+    TreeNode* Parent = NULL;
 };
 
 class Tree
@@ -51,22 +45,25 @@ class Tree
 private:
     TreeNode* root;
     TreeNode* PreCreate();
+    TreeNode* PreCreate(PI*& p);
+    int money = 5000;
 public:
-    int Print_Y = 0;
+    int Print_Y = 3;
+    int project_num = 0;
     Tree() { this->root = PreCreate(); }
+    Tree(PI* p) { this->root = PreCreate(p); }
     void Release(TreeNode* root);
     TreeNode* GetRoot() { return root; }
     ~Tree() { Release(root); }
-    void buildTree(TreeNode* root) { system("cls"); PrintTree(root, 0); }
+    int Find(string n, TreeNode* root, TreeNode*& p);
+    void buildTree(TreeNode* root);
+    void Print_form(TreeNode* root, int x);
     void PrintTree(TreeNode* root, int x = 0);
     void PreOrder(TreeNode* root);
     int Height(TreeNode* root);
-
-
-
-
-
-
+    int fire(TreeNode* root);
+    int hire(TreeNode*& root);
+    vector<TreeNode*>::iterator it;
 };
 
 
